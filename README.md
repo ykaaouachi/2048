@@ -21,37 +21,35 @@ $ cd /dir/repo/2048
 $ docker build -t ykaaouachi/2048:v1.0-alpine.3.8-nginx .
 
 Sending build context to Docker daemon  636.9kB
-Step 1/7 : FROM alpine:3.8
+Step 1/9 : FROM alpine:3.8
  ---> 196d12cf6ab1
-Step 2/7 : MAINTAINER Youssef KAAOUACHI<ykaaouachi@gmail.com>
- ---> Running in b65970636b79
-Removing intermediate container b65970636b79
- ---> 7fd6242bb64b
-Step 3/7 : RUN apk --update add nginx &&     rm -rf /var/cache/apk/* &&     mkdir -p /run/nginx
- ---> Running in b0e9e307609e
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.8/community/x86_64/APKINDEX.tar.gz
-(1/2) Installing pcre (8.42-r0)
-(2/2) Installing nginx (1.14.0-r1)
-Executing nginx-1.14.0-r1.pre-install
-Executing busybox-1.28.4-r1.trigger
-OK: 6 MiB in 15 packages
-Removing intermediate container b0e9e307609e
- ---> 37bf463bf975
-Step 4/7 : COPY conf/nginx/nginx-nobody-user.conf /etc/nginx/nginx.conf
- ---> 7b57694b6705
-Step 5/7 : COPY 2048 /usr/share/nginx/html
- ---> 43c7cff1f909
-Step 6/7 : EXPOSE 80
- ---> Running in e64258fe11ab
-Removing intermediate container e64258fe11ab
- ---> 9393507939bd
-Step 7/7 : CMD ["nginx", "-g", "daemon off;"]
- ---> Running in c9ad7f24642e
-Removing intermediate container c9ad7f24642e
- ---> 04673c51cdde
-Successfully built 04673c51cdde
-Successfully tagged ykaaouachi/2048:alpine-3.8-nginx
+Step 2/9 : LABEL version="1.0.0"  maintainer="Youssef KAAOUACHI<ykaaouachi@gmail.com>"   description="Image based on alpine v3.8, to run 2048 app on nginx"
+ ---> Using cache
+ ---> 9891aa0e8bcc
+Step 3/9 : ARG APP_PATH=/usr/share/nginx/html
+ ---> Using cache
+ ---> 63a024e7087f
+Step 4/9 : RUN apk --update add nginx &&     rm -rf /var/cache/apk/* &&     mkdir -p /run/nginx
+ ---> Using cache
+ ---> e2775c71a5e7
+Step 5/9 : COPY conf/nginx/nginx-nobody-user.conf /etc/nginx/nginx.conf
+ ---> Using cache
+ ---> b915e46a4851
+Step 6/9 : COPY 2048 ${APP_PATH}
+ ---> Using cache
+ ---> faa8b21624f1
+Step 7/9 : EXPOSE 80
+ ---> Using cache
+ ---> bfff85654851
+Step 8/9 : HEALTHCHECK CMD /usr/bin/nc 127.0.0.1 80 < /dev/null || exit 1
+ ---> Using cache
+ ---> 99595e727daf
+Step 9/9 : CMD ["nginx", "-g", "daemon off;"]
+ ---> Using cache
+ ---> a751a085e3f9
+Successfully built a751a085e3f9
+Successfully tagged ykaaouachi/2048:v1.0-alpine.3.8-nginx
+Tagging alpine@sha256:8fe3a924c6d74fc9dfeabece9aff67f4481034bda815c8b9cad4964db084fbca as alpine:3.8
 ```
 
 * **Step 3** : Sign your image (Docker best practice)

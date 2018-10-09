@@ -19,6 +19,9 @@ COPY 2048 ${APP_PATH}
 
 EXPOSE 80
 
+# Health check option
+HEALTHCHECK CMD /usr/bin/nc 127.0.0.1 80 < /dev/null || exit 1
+
 # root user run nginx master process
 # nobody user run nginx worker process (see conf/nginx/nginx-nobody-user.conf)
 # Run this command "ps aux | grep -i nginx | grep -v grep" to check ;) 

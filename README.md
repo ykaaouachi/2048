@@ -2,10 +2,6 @@
 
 Small *image* (~6.44MB) based on `alpine` (version 3.8), to run `2048` app cloned from [Gabriel repo](https://github.com/gabrielecirulli/2048), with `nginx`.
 
-### Dockerfile
-
-
-
 ### How to run
 
 * **Step 1** : Clone repo
@@ -96,6 +92,10 @@ CONTAINER ID  IMAGE                                  ...  STATUS                
 * **Step 7** : Start game
 - If you run Docker on host machine : Launch on your browser `http://localhost:8080/`
 - If you use VM to run Docker : launch `http://<IP.ADDRESS.VM.MACHINE>:8080/`
+
+And, Voilaa : 
+
+![alt text](https://user-images.githubusercontent.com/7412061/46659140-465b4480-cbac-11e8-8f3b-d739dfa9f324.png)
 
 ### Destroy Docker object
 * Remove 2048 container : 

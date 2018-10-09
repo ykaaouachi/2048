@@ -1,6 +1,6 @@
 ## Description
 
-Small *image* based on `alpine` (version 3.8), to run `2048` app cloned from [Gabriel repo](https://github.com/gabrielecirulli/2048), with `nginx`.
+Small *image* (~6.44MB) based on `alpine` (version 3.8), to run `2048` app cloned from [Gabriel repo](https://github.com/gabrielecirulli/2048), with `nginx`.
 
 ### Dockerfile
 
@@ -17,7 +17,7 @@ $ git clone git@github.com:ykaaouachi/2048.git
 * **Step 2** : Build new image :construction:
 
 ```
-$ cd /dir/repo/ykaaouachi-2048
+$ cd /dir/repo/2048
 $ docker build -t ykaaouachi/2048:alpine-3.8-nginx .
 
 Sending build context to Docker daemon  636.9kB

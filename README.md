@@ -91,7 +91,7 @@ $ docker exec 2048 ps aux | grep -i nginx | grep -v grep
 
 When run `docker ps`, we must see '(healthy)' on `STATUS` : 
 ```
-docker ps
+$ docker ps
 CONTAINER ID  IMAGE                                  ...  STATUS                  PORTS                NAMES
 8dd6cea8a447  ykaaouachi/2048:v1.0-alpine.3.8-nginx  ...  Up 13 minutes (healthy) 0.0.0.0:8080->80/tcp 2048
 ```

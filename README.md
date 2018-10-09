@@ -87,6 +87,15 @@ $ docker exec 2048 ps aux | grep -i nginx | grep -v grep
     6 nobody    0:00 nginx: worker process
 ```
 
+* **Step 6** : Docker Health check
+
+When run `docker ps`, we must see '(healthy)' on `STATUS` : 
+```
+docker ps
+CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS                    PORTS                  NAMES
+8dd6cea8a447        ykaaouachi/2048:v1.0-alpine.3.8-nginx   "nginx -g 'daemon of…"   13 minutes ago      Up 13 minutes (healthy)   0.0.0.0:8080->80/tcp   2048
+```
+
 ### References
 
 * Docker documentation, 

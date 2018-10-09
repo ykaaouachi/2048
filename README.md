@@ -95,6 +95,10 @@ docker ps
 CONTAINER ID  IMAGE                                  COMMAND                CREATED        STATUS                  PORTS                NAMES
 8dd6cea8a447  ykaaouachi/2048:v1.0-alpine.3.8-nginx  "nginx -g 'daemon of…" 13 minutes ago Up 13 minutes (healthy) 0.0.0.0:8080->80/tcp 2048
 ```
+* **Step 7** : Start game
+- If you run Docker on host machine : Launch on your browser `http://localhost:8080/`
+- If you use VM to run Docker : launch `http://<IP.ADDRESS.VM.MACHINE>:8080/`
+
 ### Destroy Docker object
 * Remove 2048 container : 
 ```

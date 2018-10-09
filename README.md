@@ -94,5 +94,3 @@ $ docker exec 2048 ps aux | grep -i nginx | grep -v grep
 * [Gabriel repo](https://github.com/gabrielecirulli/2048),
 * [To fix some issues with nginx](https://superuser.com),
 * ...
-
-

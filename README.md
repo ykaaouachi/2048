@@ -18,7 +18,7 @@ $ git clone git@github.com:ykaaouachi/2048.git
 
 ```
 $ cd /dir/repo/2048
-$ docker build -t ykaaouachi/2048:alpine-3.8-nginx .
+$ docker build -t ykaaouachi/2048:v1.0-alpine.3.8-nginx .
 
 Sending build context to Docker daemon  636.9kB
 Step 1/7 : FROM alpine:3.8
@@ -63,13 +63,13 @@ For more details : [docker documentation](https://docs.docker.com/engine/securit
 
 Now, to sign :bookmark_tabs: our image, use `docker trust sign` Docker command :
 ```
-$ docker trust sign ykaaouachi/2048:alpine-3.8-nginx
+$ docker trust sign ykaaouachi/2048:v1.0-alpine.3.8-nginx
 ```
 
 
 * **Step 4** : Run container :rocket:
 ```
-$ docker run -d --name 2048 -p 8080:80 ykaaouachi/2048:alpine-3.8-nginx
+$ docker run -d --name 2048 -p 8080:80 ykaaouachi/2048:v1.0-alpine.3.8-nginx
 43551384f420c80283063864b8cdd160bce01d9e93e57d687175e8a9da097dd0
 ```
 
@@ -92,8 +92,18 @@ $ docker exec 2048 ps aux | grep -i nginx | grep -v grep
 When run `docker ps`, we must see '(healthy)' on `STATUS` : 
 ```
 docker ps
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS                    PORTS                  NAMES
-8dd6cea8a447        ykaaouachi/2048:v1.0-alpine.3.8-nginx   "nginx -g 'daemon of…"   13 minutes ago      Up 13 minutes (healthy)   0.0.0.0:8080->80/tcp   2048
+CONTAINER ID  IMAGE                                  COMMAND                CREATED        STATUS                  PORTS                NAMES
+8dd6cea8a447  ykaaouachi/2048:v1.0-alpine.3.8-nginx  "nginx -g 'daemon of…" 13 minutes ago Up 13 minutes (healthy) 0.0.0.0:8080->80/tcp 2048
+```
+### Destroy Docker object
+* Remove 2048 container : 
+```
+$ docker kill 2048 && docker rm 2048
+```
+
+* Remove 2048 image
+```
+$ docker rmi ykaaouachi/2048:v1.0-alpine.3.8-nginx
 ```
 
 ### References
